@@ -66,6 +66,24 @@ class PokemonListViewController: UIViewController {
         searchController.searchBar.placeholder = "Search pokemon..."
         navigationItem.searchController = searchController
     }
+    
+    private func prepareDetailView(with selectedPokemon: Pokemon) {
+        guard let url = URL(string: selectedPokemon.url) else { return }
+        let request = URLRequest(url: url)
+        PokemonService().perform(urlRequest: request) { result in
+            switch result {
+            case .success(let data):
+                guard let pokemon = data.decode(type: PokemonDetails.self) else { return }
+                let model = PokemonDetailViewModel(pokemon: pokemon)
+                let storyboard = UIStoryboard(name: "PokemonDetailViewController", bundle: nil)
+                guard let vc = storyboard.instantiateInitialViewController() as? PokemonDetailViewController else { return }
+                vc.viewModel = model
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .failure(let error):
+                print("Error in \(#function) -\n\(#file):\(#line) -\n\(error.localizedDescription) \n---\n \(error)")
+            }
+        }
+    }
 }
 
 extension PokemonListViewController: UITableViewDelegate {
@@ -78,10 +96,10 @@ extension PokemonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if viewModel.filteredResults.isEmpty {
             let selectedPokemon = viewModel.collection[indexPath.row]
-            
+            prepareDetailView(with: selectedPokemon)
         } else {
             let selectedPokemon = viewModel.filteredResults[indexPath.row]
-            
+            prepareDetailView(with: selectedPokemon)
         }
     }
 }

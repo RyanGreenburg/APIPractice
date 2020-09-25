@@ -31,7 +31,7 @@ extension NetworkServicing {
                 return
             }
             
-            completion(.success(data))
+            DispatchQueue.main.async { completion(.success(data)) }
         }.resume()
     }
 }
