@@ -30,7 +30,7 @@ class PokemonListViewController: UIViewController {
     private func configureDataSource() -> UITableViewDiffableDataSource<Section, Pokemon> {
         UITableViewDiffableDataSource<Section, Pokemon>(tableView: tableView) { (tableView, indexPath, pokemon) -> UITableViewCell? in
             let cell = tableView.dequeueReusableCell(withIdentifier: "pokemonCell")
-            cell?.textLabel?.text = pokemon.name
+            cell?.textLabel?.text = pokemon.name.capitalized
             return cell
         }
     }
@@ -73,6 +73,16 @@ extension PokemonListViewController: UITableViewDelegate {
         guard indexPath.row > viewModel.collection.count - 2 else { return }
         viewModel.offset += 20
         populateModelCollection()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.filteredResults.isEmpty {
+            let selectedPokemon = viewModel.collection[indexPath.row]
+            
+        } else {
+            let selectedPokemon = viewModel.filteredResults[indexPath.row]
+            
+        }
     }
 }
 

@@ -81,7 +81,7 @@ class PokemonTypeListViewController: UIViewController {
     private func cellRegistration() -> UICollectionView.CellRegistration<UICollectionViewListCell, TypePokemon> {
         UICollectionView.CellRegistration { cell, indexPath, pokemon in
             var cellConfig = cell.defaultContentConfiguration()
-            cellConfig.text = pokemon.pokemon.name
+            cellConfig.text = pokemon.pokemon.name.capitalized
             cell.contentConfiguration = cellConfig
         }
     }
