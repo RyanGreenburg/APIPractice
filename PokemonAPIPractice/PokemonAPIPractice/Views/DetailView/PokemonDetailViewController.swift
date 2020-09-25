@@ -9,14 +9,19 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
     
-    var viewModel: String?
+    var viewModel: PokemonDetailViewModel?
+    var pokemon: PokemonDetails?
 
     @IBOutlet weak var spriteCollectionView: UICollectionView!
     @IBOutlet weak var detailsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        guard let pokemon = pokemon else { return }
+        viewModel = PokemonDetailViewModel(pokemon: pokemon)
+        
 
     }
+    
+    
 }

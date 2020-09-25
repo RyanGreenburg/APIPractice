@@ -24,6 +24,7 @@
 		625EB7DC251D9D8800090DAF /* PokemonDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 625EB7DB251D9D8800090DAF /* PokemonDetailViewController.storyboard */; };
 		625EB7E5251D9EB800090DAF /* PokemonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625EB7E4251D9EB800090DAF /* PokemonDetailViewController.swift */; };
 		625EB7EA251D9F0E00090DAF /* SpriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625EB7E9251D9F0E00090DAF /* SpriteCollectionViewCell.swift */; };
+		625EB7EF251DA2F800090DAF /* PokemonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625EB7EE251DA2F700090DAF /* PokemonDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		625EB7DB251D9D8800090DAF /* PokemonDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PokemonDetailViewController.storyboard; sourceTree = "<group>"; };
 		625EB7E4251D9EB800090DAF /* PokemonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewController.swift; sourceTree = "<group>"; };
 		625EB7E9251D9F0E00090DAF /* SpriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		625EB7EE251DA2F700090DAF /* PokemonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				625EB7DB251D9D8800090DAF /* PokemonDetailViewController.storyboard */,
 				625EB7E4251D9EB800090DAF /* PokemonDetailViewController.swift */,
 				625EB7E9251D9F0E00090DAF /* SpriteCollectionViewCell.swift */,
+				625EB7EE251DA2F700090DAF /* PokemonDetailViewModel.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				625EB7BA251CFCEF00090DAF /* PokemonListViewController.swift in Sources */,
 				625EB793251C549700090DAF /* Pokemon.swift in Sources */,
 				625EB7EA251D9F0E00090DAF /* SpriteCollectionViewCell.swift in Sources */,
+				625EB7EF251DA2F800090DAF /* PokemonDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
