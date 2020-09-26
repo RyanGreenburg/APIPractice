@@ -21,7 +21,8 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        var config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        config.headerMode = .firstItemInSection
         detailsCollectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: config)
         spriteDataSource = configureSpriteDataSource()
         spriteCollectionView.dataSource = spriteDataSource
@@ -127,6 +128,7 @@ extension PokemonDetailViewController {
                 let stats = viewModel?.stats.compactMap { ListItem.item("\($0.statInfo.name) : \($0.baseStat)") }
                 sectionSnapshot.append(stats ?? [], to: headerItem)
             }
+            sectionSnapshot.expand([headerItem])
             detailsDataSource?.apply(sectionSnapshot, to: section, animatingDifferences: false)
         }
     }
