@@ -26,6 +26,7 @@ class PokemonTypeListViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: config)
         dataSource = configureDataSource()
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         populateModelCollection()
         
     }
@@ -98,6 +99,33 @@ class PokemonTypeListViewController: UIViewController {
             let pokemonListItems = pokemon?.map { ListItem.pokemon($0) }
             sectionSnapshot.append(pokemonListItems ?? [], to: headerItem)
             dataSource?.apply(sectionSnapshot, to: type, animatingDifferences: false)
+        }
+    }
+}
+
+extension PokemonTypeListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row != 0 else { return }
+        let section = Pokemon.PokemonType.allCases[indexPath.section]
+        guard let selectedPokemon = model.collection[section]?[indexPath.row].pokemon else { return }
+        prepareDetailView(with: selectedPokemon)
+    }
+    
+    private func prepareDetailView(with selectedPokemon: Pokemon) {
+        guard let url = URL(string: selectedPokemon.url) else { return }
+        let request = URLRequest(url: url)
+        PokemonService().perform(urlRequest: request) { result in
+            switch result {
+            case .success(let data):
+                guard let pokemon = data.decode(type: PokemonDetails.self) else { return }
+                let model = PokemonDetailViewModel(pokemon: pokemon)
+                let storyboard = UIStoryboard(name: "PokemonDetailViewController", bundle: nil)
+                guard let vc = storyboard.instantiateInitialViewController() as? PokemonDetailViewController else { return }
+                vc.viewModel = model
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .failure(let error):
+                print("Error in \(#function) -\n\(#file):\(#line) -\n\(error.localizedDescription) \n---\n \(error)")
+            }
         }
     }
 }
