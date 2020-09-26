@@ -12,6 +12,7 @@ class SpriteCollectionViewCell: UICollectionViewCell {
     
     
     func configure(with string: String) {
+        spriteImageView.contentMode = .scaleAspectFit
         guard let url = URL(string: string) else { return }
         let request = URLRequest(url: url)
         PokemonService().perform(urlRequest: request) { result in

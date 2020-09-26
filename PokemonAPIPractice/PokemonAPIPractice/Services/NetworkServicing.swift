@@ -38,6 +38,12 @@ extension NetworkServicing {
 
 extension Data {
     func decode<T: Decodable>(type: T.Type, decoder: JSONDecoder = JSONDecoder()) -> T? {
-        try? decoder.decode(T.self, from: self)
+        do {
+            let object = try decoder.decode(T.self, from: self)
+            return object
+        } catch {
+            print("Error in \(#function) -\n\(#file):\(#line) -\n\(error.localizedDescription) \n---\n \(error)")
+        }
+        return nil
     }
 }

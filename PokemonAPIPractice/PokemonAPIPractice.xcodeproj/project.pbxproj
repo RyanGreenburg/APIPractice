@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62436BF2251F90AB00508082 /* Sprites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62436BF1251F90AB00508082 /* Sprites.swift */; };
 		625EB759251C543300090DAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625EB758251C543300090DAF /* AppDelegate.swift */; };
 		625EB75B251C543300090DAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625EB75A251C543300090DAF /* SceneDelegate.swift */; };
 		625EB760251C543300090DAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 625EB75E251C543300090DAF /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62436BF1251F90AB00508082 /* Sprites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sprites.swift; sourceTree = "<group>"; };
 		625EB755251C543300090DAF /* PokemonAPIPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonAPIPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		625EB758251C543300090DAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		625EB75A251C543300090DAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				625EB792251C549700090DAF /* Pokemon.swift */,
+				62436BF1251F90AB00508082 /* Sprites.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				625EB7A9251C580700090DAF /* PokemonService.swift in Sources */,
 				625EB759251C543300090DAF /* AppDelegate.swift in Sources */,
 				625EB79C251C55BD00090DAF /* NetworkServicing.swift in Sources */,
+				62436BF2251F90AB00508082 /* Sprites.swift in Sources */,
 				625EB7C7251D1D2900090DAF /* PokemonTypeListViewModel.swift in Sources */,
 				625EB75B251C543300090DAF /* SceneDelegate.swift in Sources */,
 				625EB7E5251D9EB800090DAF /* PokemonDetailViewController.swift in Sources */,
