@@ -8,8 +8,8 @@
 import Foundation
 
 struct PokemonDetailViewModel {
-    enum Section: CaseIterable {
-        case move
+    enum Section: String, CaseIterable {
+        case moves
         case stats
     }
     
