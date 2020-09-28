@@ -98,7 +98,7 @@ class PokemonTypeListViewController: UIViewController {
             let pokemon = model.collection[type]
             let pokemonListItems = pokemon?.map { ListItem.pokemon($0) }
             sectionSnapshot.append(pokemonListItems ?? [], to: headerItem)
-            dataSource?.apply(sectionSnapshot, to: type, animatingDifferences: false)
+            dataSource?.apply(sectionSnapshot, to: type, animatingDifferences: true)
         }
     }
 }

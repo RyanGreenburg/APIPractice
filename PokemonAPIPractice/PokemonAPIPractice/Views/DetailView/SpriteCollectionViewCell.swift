@@ -8,21 +8,13 @@
 import UIKit
 
 class SpriteCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var spriteImageView: UIImageView!
+    @IBOutlet weak var spriteImageView: RequestingImageView!
     
     
     func configure(with string: String) {
         spriteImageView.contentMode = .scaleAspectFit
         guard let url = URL(string: string) else { return }
         let request = URLRequest(url: url)
-        PokemonService().perform(urlRequest: request) { result in
-            switch result {
-            case .success(let data):
-                let image = UIImage(data: data)
-                self.spriteImageView.image = image
-            case .failure(let error):
-                print("Error in \(#function) -\n\(#file):\(#line) -\n\(error.localizedDescription) \n---\n \(error)")
-            }
-        }
+        spriteImageView.fetchAndSetImage(from: request)
     }
 }
