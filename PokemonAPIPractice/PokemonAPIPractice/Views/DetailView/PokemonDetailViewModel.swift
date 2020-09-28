@@ -9,8 +9,8 @@ import Foundation
 
 struct PokemonDetailViewModel {
     enum Section: String, CaseIterable {
-        case moves
         case stats
+        case moves
     }
     
     var pokemon: PokemonDetails
@@ -23,9 +23,7 @@ struct PokemonDetailViewModel {
                           pokemon.sprites.frontShiny,
                           pokemon.sprites.backShiny,
                           pokemon.sprites.frontShinyFemale,
-                          pokemon.sprites.backShinyFemale,
-                          pokemon.sprites.otherSprites.dreamWorldSprite.frontDefault,
-                          pokemon.sprites.otherSprites.dreamWorldSprite.frontFemale]
+                          pokemon.sprites.backShinyFemale]
         
         return spriteList.compactMap { $0 }
     }

@@ -57,6 +57,7 @@ extension PokemonDetailViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalHeight(0.8), heightDimension: .fractionalHeight(0.8))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 8
         section.contentInsets = .init(top: 4, leading: 4, bottom: 4, trailing: 4)
         section.orthogonalScrollingBehavior = .continuous
         return UICollectionViewCompositionalLayout(section: section)
