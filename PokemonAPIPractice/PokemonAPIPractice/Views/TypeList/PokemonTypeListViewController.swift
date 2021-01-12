@@ -22,7 +22,7 @@ class PokemonTypeListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        let config = UICollectionLayoutListConfiguration(appearance: .plain)
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: config)
         dataSource = configureDataSource()
         collectionView.dataSource = dataSource

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kaL-b2-htT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kaL-b2-htT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,49 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pye-Ec-ZIW">
-                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="UeY-Xk-FW3"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BH2-bt-Pnn">
-                                    <size key="itemSize" width="113" height="101"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="spriteCell" id="AfY-Kw-HdR" customClass="SpriteCollectionViewCell" customModule="PokemonAPIPractice" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-0.5" width="113" height="101"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uiT-hL-F6s">
-                                            <rect key="frame" x="0.0" y="0.0" width="113" height="101"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BwD-dq-6CU" customClass="RequestingImageView" customModule="PokemonAPIPractice" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="113" height="101"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="BwD-dq-6CU" secondAttribute="trailing" id="5Ae-yR-n3U"/>
-                                                <constraint firstItem="BwD-dq-6CU" firstAttribute="leading" secondItem="uiT-hL-F6s" secondAttribute="leading" id="AQ3-ur-5Ip"/>
-                                                <constraint firstItem="BwD-dq-6CU" firstAttribute="top" secondItem="uiT-hL-F6s" secondAttribute="top" id="Hsr-t5-uzn"/>
-                                                <constraint firstAttribute="bottom" secondItem="BwD-dq-6CU" secondAttribute="bottom" id="rv4-rh-LhP"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="113" height="101"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="spriteImageView" destination="BwD-dq-6CU" id="Nrn-kh-ag3"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MkY-Jz-xis">
-                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UcQ-Mk-AZF">
                                     <size key="itemSize" width="128" height="128"/>
@@ -73,18 +31,14 @@
                         <viewLayoutGuide key="safeArea" id="GLV-JS-SQY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GLV-JS-SQY" firstAttribute="trailing" secondItem="Pye-Ec-ZIW" secondAttribute="trailing" id="Dwt-6l-CkI"/>
                             <constraint firstItem="MkY-Jz-xis" firstAttribute="leading" secondItem="GLV-JS-SQY" secondAttribute="leading" id="JKc-Gg-gDu"/>
                             <constraint firstItem="GLV-JS-SQY" firstAttribute="bottom" secondItem="MkY-Jz-xis" secondAttribute="bottom" id="M1N-a1-QGW"/>
                             <constraint firstItem="GLV-JS-SQY" firstAttribute="trailing" secondItem="MkY-Jz-xis" secondAttribute="trailing" id="MC9-BM-YB4"/>
-                            <constraint firstItem="Pye-Ec-ZIW" firstAttribute="leading" secondItem="GLV-JS-SQY" secondAttribute="leading" id="WsS-OX-c3S"/>
-                            <constraint firstItem="MkY-Jz-xis" firstAttribute="top" secondItem="Pye-Ec-ZIW" secondAttribute="bottom" id="kHE-3t-ZqA"/>
-                            <constraint firstItem="Pye-Ec-ZIW" firstAttribute="top" secondItem="GLV-JS-SQY" secondAttribute="top" id="tPI-PG-wwD"/>
+                            <constraint firstItem="MkY-Jz-xis" firstAttribute="top" secondItem="GLV-JS-SQY" secondAttribute="top" id="Wla-7e-xbh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="detailsCollectionView" destination="MkY-Jz-xis" id="gUZ-0R-f2P"/>
-                        <outlet property="spriteCollectionView" destination="Pye-Ec-ZIW" id="Weh-cq-hW0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPz-bX-AMQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -20,10 +20,16 @@ protocol NetworkServicing {
 
 extension NetworkServicing {
     func perform(urlRequest: URLRequest, completion: @escaping DataCompletion) {
-        URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 print("Error in \(#function) -\n\(#file):\(#line) -\n\(error.localizedDescription) \n---\n \(error)")
                 completion(.failure(.badRequest(error)))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                print(response.url?.absoluteString ?? "")
+                print(response.statusCode)
+                print(response.allHeaderFields.description)
             }
             
             guard let data = data else {

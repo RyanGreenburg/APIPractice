@@ -8,15 +8,20 @@
 import Foundation
 
 struct PokemonDetailViewModel {
-    enum Section: String, CaseIterable {
+    enum Info: String, CaseIterable {
         case stats
         case moves
     }
     
     var pokemon: PokemonDetails
+    var title: String {
+        pokemon.name.capitalized
+    }
+    var heroImage: String {
+        pokemon.sprites.otherSprites.defaultSprite.frontDefault
+    }
     var sprites: [String] {
-        let spriteList = [pokemon.sprites.otherSprites.defaultSprite.frontDefault,
-                          pokemon.sprites.frontDefault,
+        let spriteList = [pokemon.sprites.frontDefault,
                           pokemon.sprites.backDefault,
                           pokemon.sprites.frontFemale,
                           pokemon.sprites.backFemale,
