@@ -25,6 +25,7 @@ class PokemonListViewController: UIViewController {
         dataSource = configureDataSource()
         tableView.dataSource = dataSource
         tableView.delegate = self
+        DebugEvent.log(.other(self))
     }
     
     private func configureDataSource() -> UITableViewDiffableDataSource<Section, Pokemon> {
@@ -37,9 +38,9 @@ class PokemonListViewController: UIViewController {
     
     private func populateModelCollection() {
         activeRequestGroup.enter()
-        PokemonService().fetch(.pokemon(viewModel.offset)) { (result: Result<PokemonList, NetworkError>) in
+        PokemonService().fetch(.pokemonList(viewModel.offset)) { (result: Result<PokemonList, NetworkError>) in
             switch result {
-            case.success(let list):
+            case .success(let list):
                 let pokemon = list.results
                 self.viewModel.collection.append(contentsOf: pokemon)
             case .failure(let error):

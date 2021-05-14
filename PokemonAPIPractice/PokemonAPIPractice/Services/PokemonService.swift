@@ -12,14 +12,17 @@ enum PokemonEndpoint {
 
     case ability
     case pokemon(Int)
+    case pokemonList(Int)
     case type(Pokemon.PokemonType)
     
     var path: String {
         switch self {
         case .ability:
             return "ability"
-        case .pokemon:
+        case .pokemonList:
             return "pokemon"
+        case .pokemon(let index):
+            return "pokemon/\(index)"
         case .type(let type):
             return "type/\(type.rawValue)"
         }
@@ -29,7 +32,7 @@ enum PokemonEndpoint {
         guard var url = URL(string: PokemonEndpoint.baseUrl) else { return nil }
         
         switch self {
-        case .pokemon(let offset):
+        case .pokemonList(let offset):
             url.appendPathComponent(path)
             var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
             components?.queryItems = [URLQueryItem(name: "offset", value: "\(offset)"),
@@ -41,7 +44,11 @@ enum PokemonEndpoint {
     }
 }
 
-struct PokemonService: NetworkServicing {
+protocol PokemonFetchable {
+    func fetch<T: Decodable>(_ endpoint: PokemonEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void)
+}
+
+struct PokemonService: NetworkServicing, PokemonFetchable {
     func fetch<T: Decodable>(_ endpoint: PokemonEndpoint, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = endpoint.url else {
             completion(.failure(.badURL))

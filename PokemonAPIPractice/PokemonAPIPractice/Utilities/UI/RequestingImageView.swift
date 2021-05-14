@@ -7,10 +7,10 @@
 
 import UIKit
 
-class RequestingImageView: UIImageView {
+class RequestingImageView: UIImageView, NetworkServicing {
 
     func fetchAndSetImage(from urlRequest: URLRequest) {
-        PokemonService().perform(urlRequest: urlRequest) { [weak self] result in
+        perform(urlRequest: urlRequest) { [weak self] result in
             switch result {
             case .success(let data):
                 let image = UIImage(data: data)

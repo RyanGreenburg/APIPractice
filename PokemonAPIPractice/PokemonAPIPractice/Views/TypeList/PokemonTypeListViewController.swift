@@ -28,7 +28,6 @@ class PokemonTypeListViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         populateModelCollection()
-        
     }
     
     private func populateModelCollection() {
